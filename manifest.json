@@ -6,52 +6,52 @@
   "description": "Fuel you Linkedin with AI",
 
   "icons": {
-    "48": "static/img/icon48.png",
-    "96": "static/img/icon96.png",
-    "256": "static/img/icon256.png"
-  
+    "48": "assets/icons/logo.svg",
+    "96": "assets/icons/logo.svg",
+    "256": "assets/icons/logo.svg"
   },
+
   "permissions": [
+    "<all_urls>",
+    "*://zulumini/*",
     "tabs",
     "activeTab",
-	"contextMenus",
-	"storage",
-	"notifications",
-    "*://zulumini/*"
+    "contextMenus",
+    "storage",
+    "notifications"
   ],
 
   "page_action": {
-	"default_icon": "static/img/icon256.png",
-	"browser_style": true
+	  "default_icon": "assets/icons/logo.svg",
+	  "browser_style": true
   },
 
   "background": {
     "scripts": [
-	  "js/background.js"
-	]
+	    "src/js/background.js"
+	  ]
   },
 
   "content_scripts": [
 	{
 	  "matches": ["https://www.linkedin.com/*"],
 	  "js": [
-		"js/content-script.js"
+		"src/js/content-script.js"
 	  ]
 	}
   ],
 
   "browser_action": {
     "default_title": "LinkedAi",
-    "default_popup": "html/popup.html",
-	"default_icon": {
-		"256": "static/img/icon256.png"
-	}
+    "default_icon": {
+      "256": "assets/icons/logo.svg"
+    }
   },
 
   "pages": [
     {
-	  "url": "html/home.html"
-	}
+	    "url": "src/html/home.html"
+	  }
   ],
 
   "browser_specific_settings": {
@@ -59,8 +59,9 @@
       "id": "ext@linkedai"
     }
   },
+
   "options_ui": {
-    "page": "html/config.html",
+    "page": "src/html/config.html",
     "open_in_tab": true
   }
 }
