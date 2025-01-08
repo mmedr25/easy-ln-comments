@@ -1,0 +1,66 @@
+{
+  "manifest_version": 2,
+  "name": "LinkedAi",
+  "version": "1.0",
+
+  "description": "Fuel you Linkedin with AI",
+
+  "icons": {
+    "48": "static/img/icon48.png",
+    "96": "static/img/icon96.png",
+    "256": "static/img/icon256.png"
+  
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+	"contextMenus",
+	"storage",
+	"notifications",
+    "*://zulumini/*"
+  ],
+
+  "page_action": {
+	"default_icon": "static/img/icon256.png",
+	"browser_style": true
+  },
+
+  "background": {
+    "scripts": [
+	  "js/background.js"
+	]
+  },
+
+  "content_scripts": [
+	{
+	  "matches": ["https://www.linkedin.com/*"],
+	  "js": [
+		"js/content-script.js"
+	  ]
+	}
+  ],
+
+  "browser_action": {
+    "default_title": "LinkedAi",
+    "default_popup": "html/popup.html",
+	"default_icon": {
+		"256": "static/img/icon256.png"
+	}
+  },
+
+  "pages": [
+    {
+	  "url": "html/home.html"
+	}
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ext@linkedai"
+    }
+  },
+  "options_ui": {
+    "page": "html/config.html",
+    "open_in_tab": true
+  }
+}
